@@ -1,33 +1,35 @@
-const { Client , Intents , MessageSelectMenu , MessageButton , MessageActionRow , MessageEmbed , MessageSelectMenuBuilder ,  MessageAttachment  } = require("discord.js")
-const client = new Client({
-    intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_MEMBERS,
-        Intents.FLAGS.MESSAGE_CONTENT,
-        Intents.FLAGS.GUILD_BANS,
-        Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
-        Intents.FLAGS.GUILD_INTEGRATIONS,
-        Intents.FLAGS.GUILD_INVITES,
-        Intents.FLAGS.GUILD_MEMBERS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-        Intents.FLAGS.GUILD_MESSAGE_TYPING,
-        Intents.FLAGS.GUILD_PRESENCES,
-        Intents.FLAGS.GUILD_SCHEDULED_EVENTS,
-        Intents.FLAGS.GUILD_VOICE_STATES,
-        Intents.FLAGS.GUILD_WEBHOOKS,
-    ]
-})
+const express = require('express');
+const app = express();
+const port = 3000;
 
+app.get('/', (req, res) => res.send('Hello World!'));
 
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
-
-client.on('ready', () => {
-        client.user.setActivity(`DCODE STUDIO `, {type:"PLAYING"})
-        console.log('bot Is online By dcode studio', client.user.username)
-        client.user.setStatus("online");
+const Discord = require('discord.js');
+const client = new Discord.Client({
+  intents: 131071,
 });
+client.once('ready', () => {
+  console.clear();
+  const line = '─'.repeat(50);
+  console.log(line);
+  console.log(`🌐 ${client.user.tag} is now online!`);
+  console.log(line);
+  console.log(`🤖 Bot Username  : ${client.user.username}`);
+  console.log(`🆔 Bot ID        : ${client.user.id}`);
+  console.log(`📅 Launched On   : ${new Date().toLocaleString()}`);
+  console.log(line);
+  console.log(`📊 Connected to  : ${client.guilds.cache.size} servers`);
+  console.log(`👥 Total Users   : ${client.users.cache.size}`);
+  console.log(`© 2025  Dark Developers - All Rights Reserved.`);
+  console.log(`🔗 GitHub: https://github.com/flex82/`);
+  console.log(`💬 Discord: https://discord.gg/YtfcfeDD5c`);
+  console.log(line);
+  console.log('✅ Bot is fully operational and ready to serve!');
+  console.log(line);
+  client.user.setActivity(`# ~ Dark Developers`, { type: 'WATCHING' })
+client.user.setStatus("idle");
 
 
 client.on('messageCreate', async (message) => {
