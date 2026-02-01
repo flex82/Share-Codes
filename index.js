@@ -28,7 +28,7 @@ client.once('ready', () => {
   console.log(line);
   console.log('✅ Bot is fully operational and ready to serve!');
   console.log(line);
-  client.user.setActivity(`# ~ Dark Developers`, { type: 'WATCHING' })
+  client.user.setActivity(`# ~ Lamsa Network`, { type: 'WATCHING' })
 client.user.setStatus("idle");
 
 
